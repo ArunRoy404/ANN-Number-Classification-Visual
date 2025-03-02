@@ -4,6 +4,6 @@ function getElement(id){
 function boxClear(){
     const allBox = document.querySelectorAll('.box')
     for(const box of allBox){
-        box.style.backgroundColor = 'lightGray'
+        box.style.backgroundColor = '#E5E7EB'
     }
 }

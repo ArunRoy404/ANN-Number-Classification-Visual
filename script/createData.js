@@ -12,6 +12,7 @@ clearAllBtn.addEventListener('click',function(){
 })
 
 
+
 let isMouseDown = false
 document.addEventListener('mousedown',function(e){
     isMouseDown = true
@@ -33,3 +34,25 @@ document.addEventListener('mousemove',function(e){
         }
     }
 })
+
+
+const data = [];
+function addData(){
+    const label = document.getElementById('number').value
+    const dataCell = [label,a]
+    data.push(dataCell)
+    boxClear()
+}
+document.getElementById('add-data').addEventListener('click',function(){
+    addData()
+})
+
+document.getElementById('download-data').addEventListener('click',function(){
+    const csvData = data.map(e => e.join(",")).join("\n");
+    const blob = new Blob([csvData], { type: 'text/csv' });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "data.csv";
+    link.click();
+})
+
