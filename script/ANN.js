@@ -5,20 +5,22 @@ clearAllBtn.addEventListener('click',function(){
 
 
 let isMouseDown = false
-const boxContainer = getElement('box-container')
-boxContainer.addEventListener('mousedown',function(e){
-    console.log(1)
+document.addEventListener('mousedown',function(e){
     isMouseDown = true
+    console.log(1)
 })
 
-boxContainer.addEventListener('mouseup',function(){
-    console.log(2)
+document.addEventListener('mouseup',function(){
     isMouseDown = false
+    console.log(2)
 })
 
-boxContainer.addEventListener('mousemove',function(e){
+document.addEventListener('mousemove',function(e){
     if(isMouseDown){
+        console.log(3)
         const box = e.target
+        e.preventDefault()
+        e.stopPropagation()
         if(box.classList.contains('box')){
             box.style.backgroundColor = 'black'
         }
